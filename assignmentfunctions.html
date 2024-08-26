@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // Functions without parameters
+
+    function greet(){
+        console.log("Hello, World!")
+    }
+    greet()
+
+
+
+    //Functions with parameters
+
+    function addNumbers(a,b){
+        console.log(a+b)   
+    }
+    addNumbers(4,4);
+    addNumbers(44,44)
+    addNumbers(444,444)
+
+
+
+    //Functions with return statements
+
+    function multiply(x,y){
+            return (x * y)
+    }
+    result =multiply(4,4)
+    console.log(result)
+
+
+
+   //combining Functions
+    function calculateRectangleArea(length,width){
+          return (length*width)
+    }
+    result=calculateRectangleArea(4,2)
+    console.log("Area of rectangle",result)
+
+
+
+   //Default parameter greet user
+    function greetUser(name="Guest"){
+        console.log( "hello" +"  "+ name)
+    }
+    greetUser("krish")
+    greetUser()
+
+
+</script>
+</html> 
