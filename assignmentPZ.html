@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+//1.Write a javascript program on Fibnacci series
+
+   function fibonaccia(n){
+       let a=0;
+       let b=1;
+        if (n==1)
+            console.log(0)
+        else{
+            console.log(0,1)
+            for (let i=2;i<n;i++){
+                let c= a+b;
+                a=b
+                b=c
+                console.log(c)
+            }
+        } 
+}
+fibonaccia(14)
+
+console.log('---------------');
+
+
+
+// 2.Write a javascrip program to convert temperature from  Celsius to Fahrenheit
+// formula fahrenheit=celsius * 1.8 +32
+
+ function fahrenheit(celsius){
+    return celsius *1.8+32;
+ }
+
+let celsius = 4
+console.log(celsius + "celsius equals to" + " " + fahrenheit(celsius))
+
+console.log('---------------');
+
+
+//3. Write a javascript program to find square root of number
+function square_root(num){
+    return Math.sqrt(num)
+} 
+let result= square_root(10)
+console.log('square root',result)
+
+console.log('---------------');
+
+//4. Write a javascript program to  generate a random integer between two given numbers
+function random(min,max){
+    return Math.floor(Math.random() * (max-min)+1)+min;
+}
+let integer=(random(15,40))
+console.log("random integer between 15 to 40 is",integer)
+
+
+console.log('---------------');
+
+
+// 5.javascript program to check if the passed string is palindrome or not.
+function palindrome(str){
+    let rev = ''
+    for (let i=str.length-1;i>=0;i--){
+        rev = rev +str[i];
+    }
+    if(str===rev){
+        return 'Palindrome '
+    }
+    return 'Not a Palindrome '
+}
+
+let original = ('MAM')
+console.log(palindrome(original))
+
+let original1 = ('haha')
+console.log(palindrome(original1))
+
+</script>
+</html>
