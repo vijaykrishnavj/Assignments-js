@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Dialy Task</h2>
+    <h5>Arrow Functions</h5>
+    <h5>Global and LocalScope</h5>
+    <h5>Closures</h5>
+    <h5>Pure Functions</h5>
+    <h5>Call Stack</h5>
+</body>
+<script>
+    // Arrow functions
+    // 1.Write an arrow function named multiplyByTwo that takes one parameter num and returns the value of num multiplied by 2.
+    const multiplyByTwo = (num) => {
+        return num * 2;
+    }
+    console.log(multiplyByTwo(4)); 
+
+    // 2.Write an arrow function named isEven that takes one parameter number and returns true if the number is even, otherwise returns false.
+    const isEven = (number) =>{
+        return number % 2 === 0;
+    } 
+    console.log("iseven",isEven(9)); 
+    console.log("iseven",isEven(4));
+    
+
+    // // 3.Test these functions by calling them with different arguments and printing the results to the console.
+    const iseven = (number) => number % 2 === 0;
+    console.log(`isEven, ${iseven(55)}`); 
+    console.log(`isEven, ${iseven(44)}`);  //by using template literals 
+
+
+// Global and Local scope
+// 1.Create a global variable named globalVar and assign it a value of 10.
+let globalVar = 10;
+
+// 2.Write a function named scopeTest that creates a local variable named localVar with a value of 20.
+function scopeTest() {
+    let localVar = 20;   
+    // 3.Inside scopeTest, try to print both globalVar and localVar to the console.
+    console.log(globalVar)
+        console.log(localVar)
+      }
+        scopeTest();
+        console.log(globalVar);
+
+
+// closures
+// Write a function named outerFunction that has a variable outerVar with a value of 5.
+function outerFunction(){
+    let outerVar = 5;
+    // 2. Inside outerFunction, define an inner function named innerFunction that returns the value of outerVar.
+    function innerFunction(){
+        return outerVar;
+    }
+    return innerFunction()
+}
+// 3.Return the innerFunction from outerFunction and store the result in a variable named closure.
+let closure = outerFunction()
+console.log(closure);//4.Call closure and print the result to understand how closures work.
+
+
+  // Pure Functions
+//   1.Write a function named sum that takes two parameters, a and b, and returns their sum. Ensure that the function does not modify any external variables.
+  function sum(a,b){
+            return a+b;
+         }
+          let sum1=sum(10,20);
+          let sum2=sum(10,206);
+              console.log(`sum 1 is ${sum1},sum 2 is ${sum2}`)
+
+  //  2.Write a function named multiply that takes two parameters, x and y, and returns their product. Ensure this function is also pure.
+        function multiply(x,y){
+            return x*y;
+        }
+          let mul1=multiply(9,6);
+          let mul2=multiply(9,6);
+          console.log(`mul 1 is ${mul1},mul 2 is ${mul2}`)
+
+// 3.Explain why these functions are considered pure functions.
+// we are given the same input and it returns the same output but we call it two times with same input
+
+    
+  // Call stack
+// 1.Create three functions: functionA, functionB, and functionC.
+// 2.Inside functionA, call functionB. Inside functionB, call functionC. Inside functionC, print a message like "In functionC".
+// 3.Call functionA to see the order of execution. Reflect on how the call stack handles function execution and trace the flow of these calls.
+
+        function functionA(){
+              functionB()
+        }
+        function functionB(){
+              functionC()
+        }
+        function functionC(){
+               console.log("In functionC")
+        }
+              functionA()
+    
+
+
+</script>
+</html>
