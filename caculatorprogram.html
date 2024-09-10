@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+</body>
+ <script>
+  
+class Calculator {
+    constructor() {
+        this.calculationHistory = [];
+    }
+// Define variables and functions
+    performOperation(operation, num1, num2) {
+        let result;
+
+        // Using if-else and ternary operators to determine the operation
+        if (operation === "add") {
+            result = num1 + num2;
+        } else if (operation === "subtract") {
+            result = num1 - num2;
+        } else if (operation === "multiply") {
+            result = num1 * num2;
+        } else if (operation === "divide") {
+            result = (num2 === 0) ? "Error (Division by zero)" : num1 / num2;
+        } else if (operation === "power") {
+            result = Math.pow(num1, num2);
+        } else if (operation === "sqrt") {
+            result = (num1 < 0) ? "Error (Cannot find square root of a negative number)" : Math.sqrt(num1);
+        } else if (operation === "percentage") {
+            result = (num1 * num2) / 100;
+        } else {
+            return "Invalid Operation!";
+        }
+// Store and display History
+        this.storeHistory(operation, num1, num2, result);
+        return result;
+    }
+
+    storeHistory(operation, num1, num2, result) {
+        const operationString = this.formatOperationString(operation, num1, num2, result);
+        this.calculationHistory.push(operationString);
+    }
+
+    formatOperationString(operation, num1, num2, result) {
+        let operationSymbol;
+        switch (operation) {
+            case "add":
+                operationSymbol = '+';
+                break;
+            case "subtract":
+                operationSymbol = '-';
+                break;
+            case "multiply":
+                operationSymbol = '*';
+                break;
+            case "divide":
+                operationSymbol = '/';
+                break;
+            case "power":
+                operationSymbol = '^';
+                break;
+            case "percentage":
+                operationSymbol = '% of';
+                break;
+            case "sqrt":
+                return sqrt((`${num1}) = ${result}`));
+            default:
+                return "Invalid Operation!";
+        }
+        return (`${num1} ${operationSymbol} ${num2} = ${result}`);
+    }
+
+    displayHistory() {
+        if (this.calculationHistory.length === 0) {
+            console.log("No history available.");
+        } else {
+            console.log("\nCalculation History:");
+            this.calculationHistory.forEach((entry, index) => {
+                console.log(`(${index + 1}. ${entry})`);
+            });
+        }
+    }
+
+    clearHistory() {
+        this.calculationHistory = [];
+        console.log("History cleared.");
+    }
+}
+// input handling
+// Function to get user input
+function getUserInput() {
+    const operation = prompt("Enter the operation (add, subtract, multiply, divide, power, sqrt, percentage): ").toLowerCase();
+    let num1 = parseFloat(prompt("Enter the first number: "));
+    let num2 = operation !== "sqrt" ? parseFloat(prompt("Enter the second number: ")) : 0;
+
+    // Validate inputs
+    if (isNaN(num1) || (operation !== "sqrt" && isNaN(num2))) {
+        console.log("Invalid number(s). Please enter valid numbers.");
+        return null;
+    }
+
+    return { operation, num1, num2 };
+}
+
+// Perform calculation
+function runCalculator() {
+    const calc = new Calculator();
+    let keepRunning = true;
+
+    while (keepRunning) {
+        const userInput = getUserInput();
+        if (!userInput) {
+            continue;
+        }
+
+        const { operation, num1, num2 } = userInput;
+        const result = calc.performOperation(operation, num1, num2);
+        console.log(`(Result: ${result})`);
+
+        const anotherOperation = prompt("Do you want to perform another operation? (yes/no): ").toLowerCase();
+        keepRunning = anotherOperation === 'yes';
+
+        if (!keepRunning) {
+            const viewHistory = prompt("Do you want to see the calculation history? (yes/no): ").toLowerCase();
+            if (viewHistory === 'yes') {
+                calc.displayHistory();
+            }
+
+            const clearHistory = prompt("Do you want to clear the calculation history? (yes/no): ").toLowerCase();
+            if (clearHistory === 'yes') {
+                calc.clearHistory();
+            }
+        }
+    }
+}
+
+runCalculator();
+
+    
+</script>
+</html>
