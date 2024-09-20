@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text">existing content Lasa de papel</p>
+    <button onclick="change()">click me</button>
+    <br><br><br>
+
+    <img id="Image" src="https://www.cnet.com/a/img/resize/8d159fb0c99a75843d3585dd2ae8cc9e6fa12773/hub/2017/08/03/75c3b0ae-5a2d-4d75-b72b-055247b4378f/marvelinfinitywar-captainamerica.jpg?auto=webp&fit=crop&height=1200&width=1200">
+
+<br>
+    <button onclick="newimage()">change Image</button>
+    <br><br>
+
+    <div id="remove">Removing it from dom</div>
+    <br>
+</body>
+<script>
+    //Task 1. creating and appending an element
+    const element = document.createElement('div')
+    const addText = element.append(" Hello , World ! ")
+    document.body.append(element)
+
+
+       //Task 2. Changing the Content of an Existing Element
+       function change(){
+       document.getElementById('text').textContent="This is updated content 'Money Heist'"
+       }
+    //Task 3. Creating and Appending a List of Items
+    
+    const ul=document.createElement('ul')
+    const items=['Item1','Item2','Item3']
+
+    items.forEach(elements => {
+        const li=document.createElement('li')
+        li.textContent=elements
+        ul.append(li)
+    });
+    document.body.append(ul)
+
+    // Task 4. Editing an Attribute of an Element
+    function newimage(){
+        const image = document.getElementById('Image')
+        image.setAttribute('src','https://img.etimg.com/thumb/width-1200,height-1200,imgsize-82848,resizemode-75,msid-110371715/news/international/us/mission-impossible-8-all-you-may-want-to-know-about-release-date-cast-plot-filming-and-more.jpg')
+    }
+
+    // Task 5: Deleting an Element
+       const removing=document.getElementById('remove')
+       removing.remove()
+</script>
+</html>
