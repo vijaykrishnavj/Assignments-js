@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    /* dynamic rating with JS */
+    .heading{
+      color: cadetblue;
+      font-size: 20px;
+      padding-top: 30px;
+    }
+  
+    .bi-star-fill{
+        color: gold;
+       
+    }
+    .star-icon{
+      font-size: 25px;
+      text-align: center;
+      height: 200px;
+    }
+   
+    #rating-text {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+ 
+    .ratingheading{
+        font-weight: 600;
+        font-size: 25px; 
+        color: cadetblue;
+        text-align: center; 
+    }
+
+    #rating-text{
+      font-size: 25px;
+      text-align: center; 
+    }
+
+       /* Bmi Calculator*/
+    .outer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+     .container {
+        max-width: 400px;
+        border-radius: 10px;
+        padding: 20px;
+        border: 3px solid rgb(35, 182, 205);
+    }
+
+    h1 {
+        color: cadetblue;
+        text-align: center;
+    }
+
+    label,for{
+        color:cadetblue;
+        font-weight: 600;
+    }
+
+    input[type="number"] {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #11afbe;
+        border-radius: 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: cadetblue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 10px;
+        margin-top:20px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #105b5b;
+    }
+
+    .result {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+        color: rgb(187, 20, 220);
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+/*FAQ PAGE*/
+
+    h2 {
+        margin-top: 50px;
+        font-size: 30px;
+        color: cadetblue;
+        text-align: center;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            border: 1px solid gray;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .question {
+            color: crimson;
+            font-size: 20px;
+
+            cursor: pointer;
+            padding: 5px ;
+        }
+
+        .answer {
+            color: cadetblue;
+            font-size: 18px;
+            display: none;
+            padding: 10px ;
+            border-top: 1px solid #ddd;
+        }
+
+
+ /* Toggle button */
+    #btn {
+        padding: 8px;
+        height: 80px;
+        width: 200px;
+        font-size: 20px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    .btn1{
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        transition: background-color 0.3s ease, box-shadow 0.3s,color 0.3s ease;
+    }
+    .btn1:hover {
+        box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+        color: white;
+        background-color: black;
+    }
+  .btn2{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    transition: background-color 0.3s ease, box-shadow 0.3s,color 0.3s ease;
+    }
+    .btn2:hover {
+        box-shadow: 3px 5px 5px rgba(255, 255, 255, 0.3);
+        color: black;
+        background-color: white;
+    }
+    .dark-theme {
+        background-color: black;
+        color: white;
+    }
+    
+    .togglebody {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+</style>
+<body class="toggle-outer">
+
+    <div class="star-icon" id="rating">
+        <h3 class="heading">Rate My Website</h3>
+        <i class="bi-star" id="myDIV1" onclick="myFunction(1)"></i>
+        <i class="bi-star" id="myDIV2" onclick="myFunction(2)"></i>
+        <i class="bi-star" id="myDIV3" onclick="myFunction(3)"></i>
+        <i class="bi-star" id="myDIV4" onclick="myFunction(4)"></i>
+        <i class="bi-star" id="myDIV5" onclick="myFunction(5)"></i>
+    
+        <p class="ratingheading" id="rating-text" > </p>
+    </div> 
+ 
+<!-- BMI CALCULATOR USING JS -->
+    <div class="outer">
+        <div class="container">
+            <h1>BMI Calculator</h1>
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter your weight">
+
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter your height">
+
+            <button onclick="calculateBMI()">Calculate your BMI</button>
+
+            <div class="result" id="bmiResult"></div>
+        </div>
+    </div>
+
+
+<!--FAQ PAGE-->
+
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h3 class="question">What is the coldplay ?</h3>
+            <p class="answer">Throughout their career, Coldplay has been known for their elaborate live performances, often incorporating stunning visuals and stage effects. They have won numerous awards, including multiple Grammys, and have sold over 100 million albums worldwide, making them one of the best-selling music acts in history.</p>
+        </div>
+       
+        <div class="faq-item">
+            <h3 class="question">What is te Football ?</h3> 
+            <p class="answer">Football, also known as association football or soccer, is a team sport where two teams of 11 players compete to score goals by moving the ball into the other team's goal. The game is played on a rectangular field, called a pitch, and players use their feet to propel the ball. The team with the most goals at the end of the game wins.</p>
+        </div>
+
+    </div>
+    
+    <!--Toggle button-->
+    <div class="togglebody">
+        <button id="btn" class="btn1"> DARK THEME </button>
+    </div>
+
+</body>
+
+<script>
+    //1.  dynamic rating with JS
+    const ratingText = document.getElementById('rating-text');
+    let prev = 0
+    function myFunction(a) {
+        for (let i=1;i<6;i++){
+            if (a===prev){
+                document.getElementById("myDIV"+i).classList.remove("bi-star-fill");
+                document.getElementById("myDIV"+i).classList.add("bi-star");
+            }
+            else{
+                if(i<=a){
+                    document.getElementById("myDIV"+i).classList.remove("bi-star");
+                    document.getElementById("myDIV"+i).classList.add("bi-star-fill");
+                }
+                else{
+                    document.getElementById("myDIV"+i).classList.remove("bi-star-fill");
+                    document.getElementById("myDIV"+i).classList.add("bi-star");
+                }  
+            }
+        } 
+        if(a==prev){
+            prev=0 
+            ratingText.textContent = "";
+        }   
+        else{
+            prev = a
+            ratingText.textContent = `Rating :${a} stars`
+        }
+    }
+
+
+    // 2. BMI CALCULATOR USING JS 
+    
+    function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value)/100; 
+
+            if (isNaN(weight) || isNaN(height)) {
+                document.getElementById('bmiResult').textContent = "Please enter valid numbers.";
+                return
+            }
+            const bmi = (weight / (height * height)).toFixed(2);
+            document.getElementById('bmiResult').innerHTML =` Your BMI is ${bmi}`;
+        }
+    
+     //3. FAQ
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const faqItems = document.querySelectorAll(".question");
+
+        faqItems.forEach(item => {
+        item.addEventListener("click", () => {
+            const answer = item.nextElementSibling;
+            // answer.style.display = answer.style.display === "block" ? "none" : "block";
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        });
+        });
+        });
+
+
+  //4. toggle button
+        const button = document.getElementById('btn'); 
+        const bodyElement = document.querySelector('.toggle-outer');
+        button.addEventListener('click', function () {
+
+            bodyElement.classList.toggle('dark-theme');
+            if (bodyElement.classList.contains('dark-theme')) {
+                button.textContent = ' WHITE THEME ';
+            } else {
+                button.textContent = 'DARK THEME ';
+            }
+            button.classList.toggle('btn2')
+        });
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
